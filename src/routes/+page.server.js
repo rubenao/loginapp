@@ -1,4 +1,4 @@
-export async function load({cookies}){
+/*export async function load({cookies}){
     const cookie = cookies.get('session')
 
     /*const userNotes = async () => {
@@ -13,7 +13,7 @@ export async function load({cookies}){
           }
         return await res.json()
         
-        };*/
+        };
 
     const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
           method: 'GET',
@@ -47,4 +47,4 @@ export async function load({cookies}){
         notas, user
     }
 
-}
+}*/

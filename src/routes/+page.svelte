@@ -1,33 +1,18 @@
-<script>
-    //import {atlantisCoordinates} from '$lib/server/secret.js'
-    export let data
-    const {notas}=data
-    console.log(data.notas)
-    console.log(data)
-
-</script>
 
 
-<h1 class="text-3xl font-bold underline">Todo App</h1>
+<main class="flex flex-col items-center justify-center h-screen bg-gray-100">
 
-<a href="/login" class="btn btn-primary">Login</a>
-<a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+    <h1 class="text-3xl font-bold underline">Todo App</h1>
 
-<h2>Bienvenido, {data.user.name}</h2>
-<h2>Tus notas</h2>
+    <div class="flex gap-2 mt-4">
+        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/signup" class="btn btn-secondary">Registrarse</a>
 
 
-{#if notas.length > 0}
-        <ul>
-            {#each data.notas as nota }
-                <li>
+    </div>
 
-                    Tarea {nota.nombre_tarea}
-                </li>
-                
-            {/each}
-        </ul>
 
-{:else}
-        <p>You have no notes.</p>
-{/if}
+</main>
+
+
+
