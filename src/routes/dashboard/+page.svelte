@@ -19,6 +19,8 @@
 
     <h1 class="font-bold text-3xl">Dashboard</h1>
 
+    <a href="/prompt"   class="btn btn-primary mt-3">Crear anuncios</a>
+
 <p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>
 
 <h2 class="text-2xl font-medium text-gray-700 mb-2">Agrega una tarea</h2>
