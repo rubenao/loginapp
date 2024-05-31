@@ -1,6 +1,7 @@
 <script>
   import "../app.css";
   import { onMount, onDestroy } from 'svelte';
+  import logo from '$lib/assets/logo_blanco.svg';
   import { browser } from '$app/environment';
   import { fade } from 'svelte/transition';
   let isOpen = false;
@@ -45,9 +46,9 @@
       <div class="flex justify-between w-full">
         <!-- Logotipo y links para pantallas grandes -->
         <div class="flex-shrink-0 flex items-center">
-          <h1 class="text-xl font-bold"><a href="/">Anuncio ai</a></h1>
-          <!--<img class="block lg:hidden h-8 w-auto" src="/your-logo.png" alt="Your Logo">
-          <img class="hidden lg:block h-8 w-auto" src="/your-logo.png" alt="Your Logo">-->
+          <!--<h1 class="text-xl font-bold"><a href="/">Anuncio ai</a></h1>-->
+          <a href="/"><img class="block lg:hidden h-16 w-auto" src={logo} alt="Your Logo"></a>
+          <a href="/"><img class="hidden lg:block h-16 w-auto" src={logo} alt="Your Logo"></a>
         </div>
         <div class="hidden md:flex items-center">
           {#if data.cookie}
