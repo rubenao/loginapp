@@ -17,6 +17,10 @@ export const actions = {
         console.log(email)
         console.log(formData)
 
+        if (!email || !password) {
+			return fail(400, { email, missing: true });
+		}
+
         const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/login', {
 			method: 'POST',
 			headers: {
@@ -34,12 +38,11 @@ export const actions = {
 				path: '/',
 				maxAge: 60 * 60 * 24 // 1 día
 			})
-            console.log(token)
-            console.log(cookie)
             redirect(303, '/dashboard')
+        } else {
+            return fail(400, { email, incorrect: true })
         }
 
-        console.log(response)
         
 
     

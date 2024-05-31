@@ -7,9 +7,26 @@ export function load(){
 
 export const actions = {
 
-    prompt: async({request}) =>{
+    prompt: async({request, cookies}) =>{
         //const loader = document.getElementById('loader')
         let formLoading = true
+
+        const cookie = cookies.get('session')
+
+        const responseUser = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${cookie}`
+                }
+            });
+        
+        if (!responseUser.ok) {
+                throw new Error("Failed to fetch user data");
+            }
+
+        const user = await responseUser.json()
+        const id = user.id
 
         //loader.classList.remove("hidden");
         const formData = await request.formData()
@@ -20,7 +37,7 @@ export const actions = {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ producto})
+			body: JSON.stringify({ producto, user_id:id})
 		});
 
         /*const result = await response.json();

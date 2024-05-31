@@ -2,7 +2,7 @@
     export let data
     export let form
     const {notas}=data
-    console.log(form)
+    //console.log(form)
     console.log(data.user)
     /*async function notes(){
         const response = await fetch('/api/notas')
@@ -60,7 +60,7 @@
         </ul>
 
 {:else}
-        <p>You have no notes.</p>
+        <p>No tienes notas, crea una 💡</p>
 {/if}
 
 <form method="POST" action="?/logout">

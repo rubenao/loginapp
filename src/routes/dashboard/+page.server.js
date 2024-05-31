@@ -1,7 +1,8 @@
 import { fail, redirect } from '@sveltejs/kit';
 
-export async function load({cookies}){
+export async function load({cookies,event, locals}){
   const cookie = cookies.get('session')
+  console.log(locals)
 
   const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
         method: 'GET',
@@ -11,8 +12,10 @@ export async function load({cookies}){
         }
       });
   
-  if (!response.ok) {
-          throw new Error("Failed to fetch user data");
+  if (!response.ok) { 
+          console.log(response)
+          throw new Error("No se pudo obtener la info del usuario");
+          
         }
   const user = await response.json()
 
@@ -32,7 +35,9 @@ export async function load({cookies}){
   }
   
   return {
-      notas, user
+      notas, 
+      user,
+    
   }
 
 }
@@ -61,7 +66,7 @@ export const actions = {
   const nombre_tarea = formData.get('nombre_tarea')
 
     
-  console.log(nombre_tarea)
+  //console.log(nombre_tarea)
 
   const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:KcOdzVUU/todo', {
 			method: 'POST',

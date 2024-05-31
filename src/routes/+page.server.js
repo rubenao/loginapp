@@ -1,5 +1,3 @@
-/*export async function load({cookies}){
-    const cookie = cookies.get('session')
 
     /*const userNotes = async () => {
         const res = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:KcOdzVUU/todo' , {
@@ -15,18 +13,7 @@
         
         };
 
-    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${cookie}`
-          }
-        });
     
-    if (!response.ok) {
-            throw new Error("Failed to fetch user data");
-          }
-    const user = await response.json()
 
     const userNotes = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:KcOdzVUU/get_notes_user?user_id=${user.id}` , {
         method: 'GET',
@@ -43,8 +30,12 @@
       
     }
     
-    return {
-        notas, user
-    }
+    
 
 }*/
+
+export async function load({locals}){
+
+  console.log(locals)
+
+}

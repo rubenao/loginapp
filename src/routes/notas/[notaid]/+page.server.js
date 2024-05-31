@@ -1,9 +1,23 @@
 import { fail, redirect } from '@sveltejs/kit';
 
-export async function load({params,cookies}){
+export async function load({params,cookies,locals}){
 
    
     const cookie = cookies.get('session')
+    console.log(params.notaid)
+    const notaslocals = locals.notas
+    console.log(notaslocals)
+    /*console.log(notaslocals.some(nota => nota.id < params.notaid))
+
+    if(notaslocals.some(nota => nota.id < params.notaid)){
+
+      console.log("incluye")
+    } else {
+      //throw redirect(303, '/dashboard')
+      console.log("no incluye")
+    }*/
+
+    
       
     const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
               method: 'GET',
@@ -27,9 +41,11 @@ export async function load({params,cookies}){
 
   })
   const notas = await Nota.json()
-
-  if (!Nota.ok) {
-    throw new Error("Failed to fetch user data");
+  console.log(notas.payload)
+  
+  if (notas.payload === "No tienes acceso!") {
+    //throw new Error("No puedes ingresar");
+    throw redirect(303, '/dashboard')
     
   }
 

@@ -1,36 +1,104 @@
 <script>
-    import "../app.css";
+  import "../app.css";
+  import { onMount, onDestroy } from 'svelte';
+  import { browser } from '$app/environment';
+  import { fade } from 'svelte/transition';
+  let isOpen = false;
+  let menuButton ;
+  let menu ;
+  console.log(menu)
+  console.log(menuButton)
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+  }
+
+  function closeMenu() {
+    isOpen = false;
+  }
+  if (browser) {
+
+    function handleClickOutside(event) {
+    if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+      isOpen = false;
+    }
+  }
+
+    onMount(() => {
+    document.addEventListener('click', handleClickOutside);
+  });
+
+    onDestroy(() => {
+    document.removeEventListener('click', handleClickOutside);
+  });
+
+  }
+    export let data
+    //console.log(data.cookie)
+      
 </script>
 
-<div class="navbar bg-base-100">
-  <div class="navbar-start">
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+
+<nav class="bg-gray-800 text-white">
+  <div class="flex max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
+    <div class="flex h-16 justify-between w-full">
+      <div class="flex justify-between w-full">
+        <!-- Logotipo y links para pantallas grandes -->
+        <div class="flex-shrink-0 flex items-center">
+          <h1 class="text-xl font-bold"><a href="/">Anuncio ai</a></h1>
+          <!--<img class="block lg:hidden h-8 w-auto" src="/your-logo.png" alt="Your Logo">
+          <img class="hidden lg:block h-8 w-auto" src="/your-logo.png" alt="Your Logo">-->
+        </div>
+        <div class="hidden md:flex items-center">
+          {#if data.cookie}
+          <a href="/prompt" class="px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white">Crear anuncios</a>
+          <a href="/dashboard" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Dashboard</a>
+          <a href="/suscripcion" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Suscripcion</a>
+          <form action="/logout" method="POST">
+            <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
+          </form>
+          {:else}
+          <a href="/signup" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Registrarse</a>
+          <a href="/login" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Login</a>
+          
+          {/if}
+        </div>
+        <!-- Botón para dispositivos móviles -->
+        <div class="flex items-center md:hidden">
+          <button
+            on:click={toggleMenu}
+            class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700"
+            bind:this={menuButton}>
+            <!-- Icono del menú (hamburguesa) -->
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/prompt">Crea anuncios</a></li>
-        <li><a href="/login">Iniciar sesión</a></li>
-        <li><a href="/signup">Registrarse</a></li>
-      </ul>
     </div>
   </div>
-  <div class="navbar-center">
-    <a class="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div class="navbar-end">
-    <button class="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </button>
-    <button class="btn btn-ghost btn-circle">
-      <div class="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-        <span class="badge badge-xs badge-primary indicator-item"></span>
-      </div>
-    </button>
-  </div>
-</div>
+
+  <!-- Menú para dispositivos móviles -->
+  {#if isOpen}
+    <div transition:fade={{ delay: 0, duration: 100 }} class="px-2 pt-2 pb-3 space-y-1 sm:px-3" bind:this={menu}>
+      {#if data.cookie}
+      <a href="/dashboard" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium bg-gray-900 text-white">Dashboard</a>
+      <a href="/prompt" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Crear anuncio</a>
+      <a href="/suscripcion" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Suscripción</a>
+      <form action="/logout" method="POST">
+        <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
+      </form>
+      {:else}
+      <a href="/signup" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Registrarse</a>
+      <a href="/login" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Login</a>
+      
+      {/if}
+    </div>
+  {/if}
+</nav>
+
+
 
   
   <slot />

@@ -1,11 +1,17 @@
 <script>
     import { enhance } from '$app/forms';
     import { fly, slide } from 'svelte/transition';
+    import { fade } from 'svelte/transition';
     export let form
 
     //export let data
     console.log(form)
     let formLoading = false;
+    function copyToClipboard() {
+    navigator.clipboard.writeText(JSON.stringify(form.api1.response.result.choices[0].message.content))
+      .then(() => alert('Guion copiado!'))
+      .catch(err => alert('Failed to copy data: ', err));
+    }
     //console.log(form.api1.response.result.choices[0].message.content)
 </script>
 
@@ -42,7 +48,9 @@
 
         {:else}
 
-            <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4">
+            
+            <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex-col gap-3">
+                <button class="btn btn-primary mt-4"   on:click={copyToClipboard}>Copiar guion</button>
                 {form.api1.response.result.choices[0].message.content}
             </h6>
         {/if}
