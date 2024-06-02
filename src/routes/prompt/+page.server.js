@@ -45,6 +45,7 @@ export const actions = {
 
         if (response.ok) {
             const result = await response.json();
+            console.log(result)
             formLoading = false
             //loader.classList.add("hidden");
             return result

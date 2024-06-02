@@ -6,9 +6,16 @@
 
     //export let data
     console.log(form)
+    //console.log(form.anuncios)
     let formLoading = false;
     function copyToClipboard() {
     navigator.clipboard.writeText(JSON.stringify(form.api1.response.result.choices[0].message.content))
+      .then(() => alert('Guion copiado!'))
+      .catch(err => alert('Failed to copy data: ', err));
+    }
+
+    function copyToClipboard2() {
+    navigator.clipboard.writeText(JSON.stringify(form.api2.response.result.choices[0].message.content))
       .then(() => alert('Guion copiado!'))
       .catch(err => alert('Failed to copy data: ', err));
     }
@@ -44,15 +51,48 @@
 
         {#if !form}
 
-            <h1 class="mt-4">Crea tu primer guion :)</h1>
+            <h1 class="mt-4">Comienza a crear guiones ✍️</h1>
 
         {:else}
 
+            <div class="flex md:flex-row flex-col md:gap-9">
+
+                <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-8">
+                    <button class="btn btn-primary mt-4 w-48"   on:click={copyToClipboard}>Copiar guion</button>
+                    <p>
+                        {form.api1.response.result.choices[0].message.content}
+                    </p>
+                    
+                </h6>
+    
+                <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-3">
+                    <button class="btn btn-primary mt-4 w-48"   on:click={copyToClipboard2}>Copiar guion</button>
+                    <p>
+                        {form.api2.response.result.choices[0].message.content}
+                    </p>
+                    
+                </h6>
+
+
+
+
+
+            </div>
+
             
-            <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex-col gap-3">
-                <button class="btn btn-primary mt-4"   on:click={copyToClipboard}>Copiar guion</button>
-                {form.api1.response.result.choices[0].message.content}
-            </h6>
+            <div class="flex flex-col gap-10 mt-4">
+                <h1 class="font-bold text-3xl">Inspírate de estos ejemplos </h1>
+                <div class="flex flex-wrap gap-16">
+
+                    {#each form.anuncios as anuncio }
+                    <img class="w-96"src={anuncio.imagen_anuncio.url} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    {/each}
+                </div>
+                
+            </div>
+
+            
+           
         {/if}
     {/if}
 

@@ -7,8 +7,6 @@
   let isOpen = false;
   let menuButton ;
   let menu ;
-  console.log(menu)
-  console.log(menuButton)
 
   function toggleMenu() {
     isOpen = !isOpen;
