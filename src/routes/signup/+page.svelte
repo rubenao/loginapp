@@ -4,12 +4,12 @@
 </script>
 
 
-<main class="flex items-center justify-center h-screen bg-gray-100">
+<main class="flex items-center justify-center h-screen bg-gray-100 dark:bg-slate-800">
 
   
     
     <form method="POST" action="?/signup" class="space-y-4">
-      <h2 class="text-3xl font-bold">Registrarse</h2>
+      <h2 class="text-3xl font-bold dark:text-white">Registrarse</h2>
 
         <div>
             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre</label>
@@ -27,7 +27,7 @@
           Iniciar Sesión
         </button>
 
-        <p>Ya una cuenta? <a href="/login" class="underline">Iniciar sesión</a></p>
+        <p class="dark:text-slate-400">Ya una cuenta? <a href="/login" class="underline">Iniciar sesión</a></p>
         {#if form?.incorrect}<p class="text-red-500 text-sm font-medium">Error:{form.errorData.message}</p>{/if}
       </form>
 </main>
