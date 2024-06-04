@@ -91,9 +91,9 @@
   {#if isOpen}
     <div transition:fade={{ delay: 0, duration: 100 }} class="px-2 pt-2 pb-3 space-y-1 sm:px-3" bind:this={menu}>
       {#if data.cookie}
-      <a href="/dashboard" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium bg-gray-900 text-white">Dashboard</a>
-      <a href="/prompt" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Crear anuncio</a>
-      <a href="/suscripcion" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Suscripción</a>
+      <a href="/dashboard" on:click={closeMenu} class={path === '/dashboard' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Dashboard</a>
+      <a href="/prompt" on:click={closeMenu} class={path === '/prompt' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Crear anuncio</a>
+      <a href="/suscripcion" on:click={closeMenu} class={path === '/suscripcion' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Suscripción</a>
       <form action="/logout" method="POST">
         <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
       </form>
