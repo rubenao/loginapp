@@ -85,7 +85,10 @@
                 <div class="flex flex-wrap gap-16">
 
                     {#each form.anuncios as anuncio }
-                    <img class="w-96"src={anuncio.imagen_anuncio.url} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    <div>
+                        <img class="w-96"src={anuncio.imagen_anuncio.url} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    </div>
+                    
                     {/each}
                 </div>
                 

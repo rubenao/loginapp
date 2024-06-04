@@ -8,6 +8,13 @@
   let menuButton ;
   let menu ;
 
+  import { page } from '$app/stores';
+  import { get } from 'svelte/store';
+
+  // Usamos un watcher reactivo para obtener la ruta actual
+  $: path = get(page).url.pathname;
+  console.log(path)
+
   function toggleMenu() {
     isOpen = !isOpen;
   }
@@ -50,9 +57,11 @@
         </div>
         <div class="hidden md:flex items-center">
           {#if data.cookie}
-          <a href="/prompt" class="px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white">Crear anuncios</a>
-          <a href="/dashboard" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Dashboard</a>
-          <a href="/suscripcion" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Suscripcion</a>
+          <a href="/prompt" class={path === '/prompt' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Crear anuncios</a>
+
+          <a href="/dashboard" class={path === '/dashboard' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Dashboard</a>
+
+          <a href="/suscripcion" class={path === '/suscripcion' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Suscripcion</a>
           <form action="/logout" method="POST">
             <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
           </form>
