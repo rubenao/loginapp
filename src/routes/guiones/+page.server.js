@@ -41,3 +41,33 @@ export async function load({cookies,event, locals}){
   }
 
 }
+
+
+export const actions = {
+
+  delete: async({request})=>{
+
+    const formData = await request.formData()
+    const id = formData.get('id')
+
+    const Nota = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/{guiones_id}/${id}` , {
+      method: 'DELETE',
+      headers: {
+      'Content-Type': 'application/json',
+      }
+
+    })
+
+    if (Nota.ok) {
+			const notas = await Nota.json()
+      redirect(303, '/dashboard')
+      
+    } else {
+      throw new Error("Failed to fetch user data");
+    }
+    
+    //return {success:true}
+  },
+
+
+}

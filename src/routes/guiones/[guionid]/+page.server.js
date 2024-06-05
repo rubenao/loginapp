@@ -80,7 +80,7 @@ export const actions = {
       const titulo = formData.get('titulo')
       const contenido = formData.get('contenido')
 
-      const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:KcOdzVUU/todo/${params.guionid}`, {
+      const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/${params.guionid}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
