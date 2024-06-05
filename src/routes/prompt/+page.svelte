@@ -1,8 +1,16 @@
 <script>
     import { enhance } from '$app/forms';
+	import { onMount } from 'svelte';
     import { fly, slide } from 'svelte/transition';
     import { fade } from 'svelte/transition';
+    //import Trix from "trix"
+    import 'trix/dist/trix.css'
+
     export let form
+
+    let Trix
+    let Trixeditor
+
 
     //export let data
     console.log(form)
@@ -20,6 +28,12 @@
       .catch(err => alert('Failed to copy data: ', err));
     }
     //console.log(form.api1.response.result.choices[0].message.content)
+
+    onMount(async ()=>{
+        Trix = (await import('trix')).default
+
+        Trixeditor =document.querySelector('trix-editor')
+    })
 </script>
 
 
@@ -38,7 +52,7 @@
         <div class="mt-4">
             <input type="text" id="producto" name="producto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">Crear guion</button>
+        <button type="submit" class="btn btn-primary mt-4 text-base">Crear guion</button>
 
 
     </form>
@@ -55,9 +69,32 @@
 
         {:else}
 
+
+
             <div class="flex md:flex-row flex-col md:gap-9">
 
-                <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-8">
+                <div class="card md:w-1/2 w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    <div class="card-body">
+                      <h2 class="card-title">Guión 1</h2>
+                      <p>{form.api1.response.result.choices[0].message.content}</p>
+                      <div class="card-actions justify-end">
+                        <button class="btn btn-primary" on:click={copyToClipboard}>Copiar guion</button>
+                      </div>
+                    </div>
+                </div>
+
+
+                <div class="card md:w-1/2 w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    <div class="card-body">
+                      <h2 class="card-title">Guión 2</h2>
+                      <p>{form.api2.response.result.choices[0].message.content}</p>
+                      <div class="card-actions justify-end">
+                        <button class="btn btn-primary" on:click={copyToClipboard2}>Copiar guion</button>
+                      </div>
+                    </div>
+                </div>
+
+                <!--<h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-8">
                     <button class="btn btn-primary mt-4 w-48"   on:click={copyToClipboard}>Copiar guion</button>
                     <p>
                         {form.api1.response.result.choices[0].message.content}
@@ -71,21 +108,17 @@
                         {form.api2.response.result.choices[0].message.content}
                     </p>
                     
-                </h6>
-
-
-
-
+                </h6>-->
 
             </div>
 
             
             <div class="flex flex-col gap-10 mt-4">
                 <h1 class="font-bold text-3xl">Inspírate de estos ejemplos </h1>
-                <div class="flex flex-wrap gap-16">
+                <div class="columns-2 md:columns-3 lg:columns-4">
 
                     {#each form.anuncios as anuncio }
-                    <div>
+                    <div class="mb-4">
                         <img class="w-96"src={anuncio.imagen_anuncio.url} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}} out:slide>
                     </div>
                     
@@ -98,6 +131,27 @@
            
         {/if}
     {/if}
+
+    <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4">
+
+
+        <label class="form-control w-full max-w-xs mb-4">
+            <div class="label">
+              <span class="label-text text-base font-bold">Nombre del guión</span>
+            </div>
+            <input type="text" name="titulo" placeholder="Ejm: Guion smartblends" class="input input-bordered w-full max-w-xs" />
+        </label>
+
+        <input id="x" type="hidden" name="contenido">
+        <trix-editor class="mt-4" input="x" placeholder="Sabías que el ..."></trix-editor>
+
+        <button type="submit" class="btn btn-primary mt-4 text-base">Guardar guion</button>
+
+
+
+    </form>
+
+    
 
          
 </main>

@@ -62,6 +62,7 @@
           <a href="/dashboard" class={path === '/dashboard' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Dashboard</a>
 
           <a href="/suscripcion" class={path === '/suscripcion' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Suscripcion</a>
+          <a href="/guiones" class={path === '/guiones' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Guiones</a>
           <form action="/logout" method="POST">
             <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
           </form>
@@ -89,7 +90,7 @@
 
   <!-- Menú para dispositivos móviles -->
   {#if isOpen}
-    <div transition:fade={{ delay: 0, duration: 100 }} class="px-2 pt-2 pb-3 space-y-1 sm:px-3" bind:this={menu}>
+    <div transition:fade={{ delay: 0, duration: 100 }} class="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3" bind:this={menu}>
       {#if data.cookie}
       <a href="/dashboard" on:click={closeMenu} class={path === '/dashboard' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Dashboard</a>
       <a href="/prompt" on:click={closeMenu} class={path === '/prompt' ? 'px-3 py-2 rounded-md text-sm font-medium bg-gray-900 text-white' : 'px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white'}>Crear anuncio</a>
