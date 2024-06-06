@@ -50,7 +50,7 @@ export const actions = {
     const formData = await request.formData()
     const id = formData.get('id')
 
-    const Nota = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/{guiones_id}/${id}` , {
+    const Nota = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/${id}` , {
       method: 'DELETE',
       headers: {
       'Content-Type': 'application/json',
