@@ -1,9 +1,9 @@
 <script >
     export let data
     export let form
-    const {notas}=data
+    //const {notas}=data
     //console.log(form)
-    console.log(data.user)
+    //console.log(data.user)
     /*async function notes(){
         const response = await fetch('/api/notas')
         const notas=await response.json()

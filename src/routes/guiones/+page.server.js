@@ -60,7 +60,8 @@ export const actions = {
 
     if (Nota.ok) {
 			const notas = await Nota.json()
-      redirect(303, '/dashboard')
+      //redirect(303, '/dashboard')
+      return {success:true}
       
     } else {
       throw new Error("Failed to fetch user data");

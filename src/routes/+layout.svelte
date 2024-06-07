@@ -2,6 +2,7 @@
   import "../app.css";
   import { onMount, onDestroy } from 'svelte';
   import logo from '$lib/assets/logo_blanco.svg';
+  import { Toaster } from 'svelte-french-toast';
   import { browser } from '$app/environment';
   import { fade } from 'svelte/transition';
   let isOpen = false;
@@ -13,7 +14,7 @@
 
   // Usamos un watcher reactivo para obtener la ruta actual
   $: path = get(page).url.pathname;
-  console.log(path)
+  //console.log(path)
 
   function toggleMenu() {
     isOpen = !isOpen;
@@ -44,6 +45,7 @@
       
 </script>
 
+<Toaster />
 
 <nav class="bg-gray-800 text-white">
   <div class="flex max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">

@@ -10,6 +10,7 @@ export const actions = {
     prompt: async({request, cookies}) =>{
         //const loader = document.getElementById('loader')
         let formLoading = true
+        let modal = false
 
         const cookie = cookies.get('session')
 
@@ -28,35 +29,69 @@ export const actions = {
         const user = await responseUser.json()
         const id = user.id
 
-        //loader.classList.remove("hidden");
-        const formData = await request.formData()
-        const producto = formData.get('producto')
+        //Validación de palabras
 
-        const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:rdKRm-Pu/prompts', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ producto, user_id:id})
-		});
+        const verificacion = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:rdKRm-Pu/verificacion_palabras', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ user_id:id})
+        });
 
-        /*const result = await response.json();
-        return result*/
+        const boolean = await verificacion.json()
+        console.log(boolean.boolean)
 
-        if (response.ok) {
-            const result = await response.json();
-            console.log(result)
-            formLoading = false
-            //loader.classList.add("hidden");
-            return result
-            redirect(303, '/dashboard')
+        if (boolean.boolean === false){
+            
+
+            //let modal = showModal()
+            //formLoading = false
+            //modal = true
+            console.log("No puede crear más palabaras el usuario")
+            return fail(400, { missing: true })
+
+        } else {
+
+            
+            console.log("El usuario puede crear más palabras")
+
+
+                const formData = await request.formData()
+                const producto = formData.get('producto')
+
+                const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:rdKRm-Pu/prompts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ producto, user_id:id})
+                });
+
+                /*const result = await response.json();
+                return result*/
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result)
+                    formLoading = false
+                    //loader.classList.add("hidden");
+                    return result
+                    redirect(303, '/dashboard')
+                }
+
         }
 
+        
 
+        //loader.classList.remove("hidden");
+        
+        
+        
 
         //return {succes:true}
 
-
+        
 
 
     },

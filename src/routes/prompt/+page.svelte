@@ -16,6 +16,13 @@
     console.log(form)
     //console.log(form.anuncios)
     let formLoading = false;
+    let modal = false
+
+    function showmodal(){
+
+        document.getElementById('my_modal_3').showModal()
+    }
+
     function copyToClipboard() {
     navigator.clipboard.writeText(JSON.stringify(form.api1.response.result.choices[0].message.content))
       .then(() => alert('Guion copiado!'))
@@ -33,6 +40,9 @@
         Trix = (await import('trix')).default
 
         Trixeditor =document.querySelector('trix-editor')
+
+       
+
     })
 </script>
 
@@ -43,8 +53,11 @@
 
     <form method="POST" action="?/prompt" use:enhance={() => {
         formLoading = true;
+        modal = false
         return async ({ update }) => {
+            modal = true
             formLoading = false;
+            
             update();
         };
     }}>
@@ -57,59 +70,66 @@
 
     </form>
 
+    {#if form?.missing}
+
+        {showmodal()}
+
+        <!--<dialog id="my_modal_3" class="modal">
+        <div class="modal-box">
+            <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <h3 class="font-bold text-lg">Hello!</h3>
+            <p class="py-4">Press ESC key or click on ✕ button to close</p>
+        </div>
+        </dialog>-->
+    {/if}  
+
     {#if formLoading}
 
         <span id="loader" class="loading loading-spinner loading-sm mt-4"></span>
 
-    {:else}
+            <!--{#if modal}
 
-        {#if !form}
+            {showmodal()}
 
-            <h1 class="mt-4">Comienza a crear guiones ✍️</h1>
+            <dialog id="my_modal_3" class="modal">
+            <div class="modal-box">
+                <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                </form>
+                <h3 class="font-bold text-lg">Hello!</h3>
+                <p class="py-4">Press ESC key or click on ✕ button to close</p>
+            </div>
+            </dialog>
+            {/if} -->
 
-        {:else}
 
+    {/if}
 
-
+        {#if form} 
             <div class="flex md:flex-row flex-col md:gap-9">
 
                 <div class="card md:w-1/2 w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
                     <div class="card-body">
-                      <h2 class="card-title">Guión 1</h2>
-                      <p>{form.api1.response.result.choices[0].message.content}</p>
-                      <div class="card-actions justify-end">
+                    <h2 class="card-title">Guión 1</h2>
+                    <p>{form.api1.response.result.choices[0].message.content}</p>
+                    <div class="card-actions justify-end">
                         <button class="btn btn-primary" on:click={copyToClipboard}>Copiar guion</button>
-                      </div>
+                    </div>
                     </div>
                 </div>
 
 
                 <div class="card md:w-1/2 w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
                     <div class="card-body">
-                      <h2 class="card-title">Guión 2</h2>
-                      <p>{form.api2.response.result.choices[0].message.content}</p>
-                      <div class="card-actions justify-end">
+                    <h2 class="card-title">Guión 2</h2>
+                    <p>{form.api2.response.result.choices[0].message.content}</p>
+                    <div class="card-actions justify-end">
                         <button class="btn btn-primary" on:click={copyToClipboard2}>Copiar guion</button>
-                      </div>
+                    </div>
                     </div>
                 </div>
-
-                <!--<h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-8">
-                    <button class="btn btn-primary mt-4 w-48"   on:click={copyToClipboard}>Copiar guion</button>
-                    <p>
-                        {form.api1.response.result.choices[0].message.content}
-                    </p>
-                    
-                </h6>
-    
-                <h6 in:fly={{ y: 20, duration: 1000}} out:slide class="mt-4 flex flex-col gap-3">
-                    <button class="btn btn-primary mt-4 w-48"   on:click={copyToClipboard2}>Copiar guion</button>
-                    <p>
-                        {form.api2.response.result.choices[0].message.content}
-                    </p>
-                    
-                </h6>-->
-
             </div>
 
             
@@ -127,10 +147,24 @@
                 
             </div>
 
-            
-           
+        {:else}
+
+        <h1 class="mt-4">Comienza a crear guiones ✍️</h1>
+
         {/if}
-    {/if}
+    
+
+    <!-- You can open the modal using ID.showModal() method 
+    <button class="btn" onclick="my_modal_3.showModal()">open modal</button>-->
+    <dialog id="my_modal_3" class="modal">
+    <div class="modal-box">
+        <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        </form>
+        <h3 class="font-bold text-lg">Ups!</h3>
+        <p class="py-4">Excediste el limite de palabras!</p>
+    </div>
+    </dialog>
 
     <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4">
 
