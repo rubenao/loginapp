@@ -19,7 +19,7 @@ export async function load({params,cookies,locals}){
 
     
       
-    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+    const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export async function load({params,cookies,locals}){
               }
     const user = await response.json()
 
-    const Nota = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/${params.guionid}` , {
+    const Nota = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:MhjUxcon/guiones/${params.guionid}?user_id=${user.id}` , {
       method: 'GET',
       headers: {
       'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export const actions = {
   update: async ({request, cookies, params})=> {
       const cookie = cookies.get('session')
 
-      const responseUser = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+      const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export const actions = {
       const titulo = formData.get('titulo')
       const contenido = formData.get('contenido')
 
-      const response = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/${params.guionid}`, {
+      const response = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:MhjUxcon/guiones/${params.guionid}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export const actions = {
 
       if (response.ok) {
               const result = await response.json();
-      redirect(303, '/dashboard')
+      redirect(303, '/guiones')
       }
 
       return {success:true}
