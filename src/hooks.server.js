@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 
 export async function handle({ event, resolve }) {
 
-    const response2 = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+    const response2 = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

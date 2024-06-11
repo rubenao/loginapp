@@ -8,7 +8,7 @@ export const actions ={
         const email = formData.get('email')
         const password = formData.get('password')
 
-        const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/signup', {
+        const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

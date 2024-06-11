@@ -21,7 +21,7 @@ export const actions = {
 			return fail(400, { email, missing: true });
 		}
 
-        const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/login', {
+        const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

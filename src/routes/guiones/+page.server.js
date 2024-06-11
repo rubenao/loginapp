@@ -4,7 +4,7 @@ export async function load({cookies,event, locals}){
   const cookie = cookies.get('session')
   console.log(locals)
 
-  const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+  const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export async function load({cookies,event, locals}){
         }
   const user = await response.json()
 
-  const userGuiones = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/get_guiones_user?user_id=${user.id}` , {
+  const userGuiones = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:MhjUxcon/get_guiones_user?user_id=${user.id}` , {
       method: 'GET',
       headers: {
       'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export const actions = {
     const formData = await request.formData()
     const id = formData.get('id')
 
-    const Nota = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones/${id}` , {
+    const Nota = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:MhjUxcon/guiones/${id}` , {
       method: 'DELETE',
       headers: {
       'Content-Type': 'application/json',

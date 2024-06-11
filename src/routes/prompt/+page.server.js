@@ -14,7 +14,7 @@ export const actions = {
 
         const cookie = cookies.get('session')
 
-        const responseUser = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+        const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
                 method: 'GET',
                 headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export const actions = {
 
         //Validación de palabras
 
-        const verificacion = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:rdKRm-Pu/verificacion_palabras', {
+        const verificacion = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:nCl8y_gm/verificacion_palabras', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export const actions = {
                 const formData = await request.formData()
                 const producto = formData.get('producto')
 
-                const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:rdKRm-Pu/prompts', {
+                const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:nCl8y_gm/prompts', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ export const actions = {
 
         const cookie = cookies.get('session')
 
-        const responseUser = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+        const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
                 method: 'GET',
                 headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ export const actions = {
         const titulo = formData.get('titulo')
         const contenido = formData.get('contenido')
 
-        const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:kxKm5VLi/guiones', {
+        const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:MhjUxcon/guiones', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -140,7 +140,7 @@ export const actions = {
             //formLoading = false
             //loader.classList.add("hidden");
             //return result
-            redirect(303, '/dashboard')
+            return {success:true}
         }
 
 

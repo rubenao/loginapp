@@ -3,7 +3,7 @@ import { redirect } from "@sveltejs/kit";
 export async function load({cookies}){
     const cookie = cookies.get('session')
 
-    const response = await fetch('https://x8ki-letl-twmt.n7.xano.io/api:k_bg5U-q/auth/me', {
+    const response = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ export async function load({cookies}){
         });
     
     if (!response.ok) {
-            console.log("Failed to fetch user data")
+            console.log("No se pudo obtener la data del usuario desde layout.server.js")
             
           }
     const user = await response.json()

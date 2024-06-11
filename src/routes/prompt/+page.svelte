@@ -2,6 +2,7 @@
     import { enhance } from '$app/forms';
 	import { onMount } from 'svelte';
     import { fly, slide } from 'svelte/transition';
+    import toast from 'svelte-french-toast';
     import { fade } from 'svelte/transition';
     //import Trix from "trix"
     import 'trix/dist/trix.css'
@@ -44,6 +45,21 @@
        
 
     })
+
+    const submitNote = () => {
+		return async ({ result, update }) => {
+			switch (result.type) {
+				case 'success':
+					toast.success('Se ha creado la nota!', {
+		duration: 1000,
+	        });
+					break;
+				default:
+					break;
+			}
+			await update();
+		};
+	};
 </script>
 
 
@@ -58,7 +74,7 @@
             modal = true
             formLoading = false;
             
-            update();
+            await update();
         };
     }}>
 
@@ -166,7 +182,7 @@
     </div>
     </dialog>
 
-    <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4">
+    <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4" use:enhance={submitNote}>
 
 
         <label class="form-control w-full max-w-xs mb-4">

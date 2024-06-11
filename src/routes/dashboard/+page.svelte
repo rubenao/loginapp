@@ -23,7 +23,7 @@
 
 <p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>
 
-<h2 class="text-2xl font-medium text-gray-700 mb-2">Agrega una tarea</h2>
+<!--<h2 class="text-2xl font-medium text-gray-700 mb-2">Agrega una tarea</h2>
 
 <form method="POST" action="?/create">
 
@@ -69,7 +69,7 @@
         <button type="submit" class="btn btn-primary">Salir</button>
     </div>
 
-</form>
+</form>-->
 
 
 
