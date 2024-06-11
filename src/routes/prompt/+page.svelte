@@ -3,21 +3,23 @@
 	import { onMount } from 'svelte';
     import { fly, slide } from 'svelte/transition';
     import toast from 'svelte-french-toast';
+    import { goto } from '$app/navigation';
     import { fade } from 'svelte/transition';
+    import { fail, redirect } from '@sveltejs/kit';
     //import Trix from "trix"
     import 'trix/dist/trix.css'
 
     export let form
 
     let Trix
-    let Trixeditor
+    let Trixeditor 
 
 
     //export let data
     console.log(form)
-    //console.log(form.anuncios)
     let formLoading = false;
     let modal = false
+    let formresult = false
 
     function showmodal(){
 
@@ -46,13 +48,24 @@
 
     })
 
-    const submitNote = () => {
+    const submitNote = ({data}) => {
+        console.log(data)
 		return async ({ result, update }) => {
+            
+            console.log(result.type)
 			switch (result.type) {
-				case 'success':
+				case 'redirect':
+                
 					toast.success('Se ha creado la nota!', {
 		duration: 1000,
-	        });
+        
+	        })
+            form.reset()
+            await applyAction(result)
+            await invalidateAll()
+            //update();
+            
+            ;
 					break;
 				default:
 					break;
@@ -70,13 +83,27 @@
     <form method="POST" action="?/prompt" use:enhance={() => {
         formLoading = true;
         modal = false
-        return async ({ update }) => {
+        //formresult = false
+        return async ({ update, result }) => {
             modal = true
             formLoading = false;
+            console.log(result.type)
+            //formresult = true
+                    switch (result.type) {
+                        case 'redirect':
+                            showmodal();
+                            await update();
+                    ;
+                            break;
+                        default:
+                            break;
+                    }
+                    await update();
+		    };
             
-            await update();
-        };
-    }}>
+            
+        }
+    }>
 
         <div class="mt-4">
             <input type="text" id="producto" name="producto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
@@ -123,8 +150,10 @@
 
     {/if}
 
-        {#if form} 
-            <div class="flex md:flex-row flex-col md:gap-9">
+    {#if form}
+
+        
+            <div class="flex md:flex-row flex-col md:gap-9 gap-9">
 
                 <div class="card md:w-1/2 w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
                     <div class="card-body">
@@ -167,7 +196,8 @@
 
         <h1 class="mt-4">Comienza a crear guiones ✍️</h1>
 
-        {/if}
+    {/if}
+  
     
 
     <!-- You can open the modal using ID.showModal() method 
@@ -182,9 +212,9 @@
     </div>
     </dialog>
 
-    <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4" use:enhance={submitNote}>
+    <form action="?/save" method="POST" class="md:w-2/3 w-full mt-4"  >
 
-
+        <!--use:enhance={submitNote}-->
         <label class="form-control w-full max-w-xs mb-4">
             <div class="label">
               <span class="label-text text-base font-bold">Nombre del guión</span>

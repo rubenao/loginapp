@@ -1,4 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 
 export function load(){
 
@@ -10,6 +11,7 @@ export const actions = {
     prompt: async({request, cookies}) =>{
         //const loader = document.getElementById('loader')
         let formLoading = true
+        let formresult = false
         let modal = false
 
         const cookie = cookies.get('session')
@@ -49,7 +51,9 @@ export const actions = {
             //formLoading = false
             //modal = true
             console.log("No puede crear más palabaras el usuario")
-            return fail(400, { missing: true })
+            //return fail(400, { missing: true })
+            redirect(303, '/prompt')
+            //return {success:true}
 
         } else {
 
@@ -75,8 +79,10 @@ export const actions = {
                     const result = await response.json();
                     console.log(result)
                     formLoading = false
+                    formresult = true
                     //loader.classList.add("hidden");
                     return result
+                    //return {success:true}
                     redirect(303, '/dashboard')
                 }
 
@@ -135,12 +141,14 @@ export const actions = {
         return result*/
 
         if (response.ok) {
-            const result = await response.json();
-            console.log(result)
+            const result2 = await response.json();
+            console.log(result2)
             //formLoading = false
             //loader.classList.add("hidden");
-            //return result
-            return {success:true}
+            //return result2
+            //return {invalid:true}
+            redirect(303,'/guiones')
+            
         }
 
 
