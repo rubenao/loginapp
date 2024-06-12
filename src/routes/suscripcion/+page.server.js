@@ -1,3 +1,5 @@
+import { redirect } from "@sveltejs/kit";
+
 export async function load({cookies}){
 
     const cookie = cookies.get('session')
@@ -41,4 +43,52 @@ export async function load({cookies}){
 
   
 
+}
+
+export const actions = {
+
+  suscribir: async({request, cookies}) =>{
+
+    const cookie = cookies.get('session')
+
+    const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${cookie}`
+            }
+        });
+    
+    if (!responseUser.ok) {
+            throw new Error("Failed to fetch user data");
+        }
+
+    const user = await responseUser.json()
+    const id = user.id
+    const email = user.email
+    const nombre = user.name
+
+    //Validación de palabras
+
+    const checkout = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:_XMYlbgZ/peticion', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_id:id, email, nombre})
+    });
+
+    const checkoutresponse = await checkout.json()
+    console.log(checkoutresponse)
+    const link = checkoutresponse.link
+    console.log(link)
+
+    if (checkout.ok) {
+
+      redirect(303, link)
+      
+    }
+
+    
+    }
 }
