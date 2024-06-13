@@ -90,5 +90,59 @@ export const actions = {
     }
 
     
-    }
+    },
+
+    portal: async({request, cookies}) =>{
+
+      const cookie = cookies.get('session')
+  
+      const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
+              method: 'GET',
+              headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${cookie}`
+              }
+          });
+      
+      if (!responseUser.ok) {
+              throw new Error("Failed to fetch user data");
+          }
+  
+      const user = await responseUser.json()
+      const id = user.id
+      const email = user.email
+      const nombre = user.name
+  
+      //Validación de palabras
+  
+      const portal = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:_XMYlbgZ/customer_portal', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email})
+      });
+  
+      const portalresponse = await portal.json()
+      console.log(portalresponse)
+
+      
+  
+      const link = portalresponse
+      console.log(link)
+
+      if (portalresponse) {
+  
+        redirect(303, link)
+        
+      } else {
+
+        redirect(303, '/dashboard')
+      }
+  
+      
+      
+      }
+
+
 }
