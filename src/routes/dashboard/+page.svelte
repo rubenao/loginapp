@@ -21,7 +21,7 @@
 </script>
 
 
-<main class="p-5">
+<main class="p-5 bg-slate-300">
 
     <!--<p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>-->
 
@@ -52,15 +52,28 @@
                     <!--<p>Contiene mp4</p>-->
 
                     <div class="mb-4" >
-                        <video src={url1} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide controls>
-                            <track kind="captions">
-                        </video>
+                        <div class="card w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
+                            <div class="card-body flex-row p-5">
+                                <video src={url1} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide controls>
+                                    <track kind="captions">
+                                </video>
+                            
+                            </div>
+                        </div>
+                        
                     </div>
 
                 {:else}
 
                     <div class="mb-4" >
-                        <img class="w-96"src={url1} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}}>
+
+                        <div class="card w-full bg-base-100 shadow-xl" in:fly={{ y: 20, duration: 1000}} out:slide>
+                            <div class="card-body flex-row p-5">
+                                <img class="w-96"src={url1} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}}>
+                            
+                            </div>
+                        </div>
+                        
                         <!--<video src={anuncio.video_anuncio.url} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide>
                             <track kind="captions">
                         </video>-->

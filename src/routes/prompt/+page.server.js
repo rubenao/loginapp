@@ -72,12 +72,23 @@ export const actions = {
                     body: JSON.stringify({ producto, user_id:id})
                 });
 
+                /*const anuncios = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:hAeKwayt/dashboard_anuncios', {
+                    method: 'GET',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    }
+                  }); */
+                
+                
+
                 /*const result = await response.json();
                 return result*/
 
                 if (response.ok) {
                     const result = await response.json();
+                    //const anunciosResponse = await anuncios.json()
                     console.log(result)
+                    //console.log(anunciosResponse)
                     formLoading = false
                     formresult = true
                     //loader.classList.add("hidden");
