@@ -31,12 +31,12 @@ export async function handle({ event, resolve }) {
     
 
     if (event.url.pathname.startsWith('/dashboard')) {
-		if(event.locals.user.message === 'Invalid token.'){
+		    if(event.locals.user.message === 'Invalid token.'){
 
             console.log('Acceso denegado')
             throw redirect(303, '/login')
           }
-	}
+	  }
 
 
 	const response = await resolve(event);

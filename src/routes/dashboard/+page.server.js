@@ -19,23 +19,19 @@ export async function load({cookies,event, locals}){
         }
   const user = await response.json()
 
-  /*const userNotes = await fetch(`https://x8ki-letl-twmt.n7.xano.io/api:KcOdzVUU/get_notes_user?user_id=${user.id}` , {
-      method: 'GET',
-      headers: {
+  const anuncios = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:hAeKwayt/dashboard_anuncios', {
+    method: 'GET',
+    headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${cookie}`
     }
+  });
 
-  })
-  const notas = await userNotes.json()
+  const anunciosResponse = await anuncios.json()
 
-  if (!userNotes.ok) {
-    throw new Error("Failed to fetch user data");
-    
-  }*/
+  
   
   return {
-      user,
+      user, anunciosResponse
     
   }
 

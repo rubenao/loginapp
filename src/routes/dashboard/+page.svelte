@@ -1,6 +1,8 @@
 <script >
+    import { fly, slide } from 'svelte/transition';
     export let data
-    export let form
+    console.log(data)
+    //export let form
     //const {notas}=data
     //console.log(form)
     //console.log(data.user)
@@ -10,6 +12,10 @@
         console.log(notas)
       
     }*/
+
+    $: url = data.anunciosResponse.anuncios
+
+    console.log(url)
    
     
 </script>
@@ -17,59 +23,63 @@
 
 <main class="p-5">
 
-    <h1 class="font-bold text-3xl">Dashboard</h1>
-
-    <a href="/prompt"   class="btn btn-primary mt-3">Crear anuncios</a>
-
-<p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>
-
-<!--<h2 class="text-2xl font-medium text-gray-700 mb-2">Agrega una tarea</h2>
-
-<form method="POST" action="?/create">
-
-    <div class=" mb-4">
-      <input type="text" id="tarea" name="nombre_tarea" placeholder="Ingresa una tarea" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
-    </div>
-    <button type="submit" class="btn btn-primary font-bold text-base">Agregar tarea</button>
-</form>
-
-<h2 class="text-2xl font-medium text-gray-700 mt-5">Tus notas</h2>
+    <!--<p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>-->
 
 
-{#if data.notas.length >0}
-        <ul >
-            {#each data.notas as nota }
-                <li>
-                    <form method="POST" action="?/delete">
+    <div class="flex flex-col gap-10 mt-4">
+        <h1 class="font-bold text-3xl">Inspírate de estos anuncios </h1>
+        <div class="columns-2 md:columns-3 lg:columns-4" in:fly={{ y: 40, duration: 1000}}>
 
-                        <div class="flex flex-col gap-4">
-
-                            <input type="hidden" value="{nota.id}" name="id">
-                            <a href="/notas/{nota.id}">Tarea {nota.nombre_tarea}</a>
-                           
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Eliminar</button>
-
-                    </form>
-
-                    
-                </li>
-                
+            <!--{#each data.anunciosResponse.result1 as anuncio }
+            <div class="mb-4" >
+                <img class="w-96"src={anuncio.imagen_anuncio.url} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}}>
+                <video src={anuncio.video_anuncio.url} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide>
+                    <track kind="captions">
+                </video>
+            </div>
             {/each}
-        </ul>
+            {#each data.anunciosResponse.anuncios_videos as anuncio }
+            <div class="mb-4" >
+                <video src={anuncio.video_anuncio.url} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide controls>
+                    <track kind="captions">
+                </video>
+            </div>
+            {/each} -->
 
-{:else}
-        <p>No tienes notas, crea una 💡</p>
-{/if}
+            {#each url as url1}
+                {#if url1.includes("mp4")}
 
-<form method="POST" action="?/logout">
+                    <!--<p>Contiene mp4</p>-->
 
-    <div class="mt-4">
-        <button type="submit" class="btn btn-primary">Salir</button>
+                    <div class="mb-4" >
+                        <video src={url1} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide controls>
+                            <track kind="captions">
+                        </video>
+                    </div>
+
+                {:else}
+
+                    <div class="mb-4" >
+                        <img class="w-96"src={url1} alt="imagen de anuncio" in:fly={{ y: 20, duration: 1000}}>
+                        <!--<video src={anuncio.video_anuncio.url} class="aspect-auto" in:fly={{ y: 20, duration: 1000}} out:slide>
+                            <track kind="captions">
+                        </video>-->
+                    </div>
+
+                    <!--<p>No Contiene mp4</p>-->
+
+                {/if}
+
+
+            {/each}
+        </div>
+        
     </div>
 
-</form>-->
+
+   
+
+
 
 
 

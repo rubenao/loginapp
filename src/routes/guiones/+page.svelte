@@ -34,7 +34,7 @@
 
 
 
-<main class="p-5">
+<main class="sm:px-6 lg:px-8 px-4 py-4">
 
             <!--<h1 class="font-bold text-3xl">Guiones</h1>
 
@@ -108,7 +108,7 @@
                 
                     
                 {#each data.notas.result1 as nota }
-                    <tr class="hover:bg-slate-400" in:fly={{ y: 20 }} out:slide>
+                    <tr class="hover:bg-slate-200" in:fly={{ y: 20 }} out:slide>
                         <th>{nota.id}</th>
                         <td>{nota.titulo}</td>
                         <td> {nota.contenido}</td>
@@ -134,7 +134,7 @@
             
             </table>
         {:else}
-        <p>No tienes notas, crea una 💡</p>
+        <p>No tienes guiones, crea uno 💡</p>
         {/if}
     </div>
 
