@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import daisyui from "daisyui"
+const { addDynamicIconSelectors } = require('@iconify/tailwind')
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
@@ -12,6 +13,6 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
+  plugins: [daisyui , addDynamicIconSelectors()]
 }
 
