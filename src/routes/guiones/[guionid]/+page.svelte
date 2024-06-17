@@ -21,7 +21,7 @@
 
 <main class="p-5">
 
-    <h1 class="font-bold text-3xl">Detalle del Guion</h1>
+    <h1 class="font-bold text-3xl mt-20">Detalle del Guion</h1>
 
     <form action="?/update" method="POST" class="md:w-2/3 w-full mt-4">
 

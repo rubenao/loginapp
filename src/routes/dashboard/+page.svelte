@@ -26,7 +26,7 @@
     <!--<p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>-->
 
 
-    <div class="flex flex-col gap-10 mt-4">
+    <div class="flex flex-col gap-10 mt-16">
         <h1 class="font-bold text-3xl">Inspírate de estos anuncios </h1>
         <div class="columns-2 md:columns-3 lg:columns-4" in:fly={{ y: 40, duration: 1000}}>
 

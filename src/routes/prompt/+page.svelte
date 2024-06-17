@@ -78,7 +78,7 @@
 
 <main class="p-5">
 
-    <h1>Crea el guion de tu anuncio</h1>
+    <h1 class="mt-20">Crea el guion de tu anuncio</h1>
 
     <form method="POST" action="?/prompt" use:enhance={() => {
         formLoading = true;

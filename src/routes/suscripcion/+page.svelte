@@ -8,7 +8,7 @@
 <main class="sm:px-6 lg:px-8 px-4 py-4">
 
 
-      <div>
+      <div class="mt-14">
         <div class="px-4 sm:px-0">
           <h3 class="leading-7 text-gray-900 font-bold text-3xl">Suscripción</h3>
         </div>

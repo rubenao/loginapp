@@ -85,7 +85,7 @@
         </div>
     {/if}  
 
-    <h1 class="text-3xl font-bold" >Tus guiones</h1>
+    <h1 class="text-3xl font-bold mt-14" >Tus guiones</h1>
 
     <div class="overflow-x-auto">
             {#if data.notas.result1.length >0}

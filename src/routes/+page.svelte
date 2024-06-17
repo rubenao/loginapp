@@ -7,10 +7,11 @@
     <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
       
       <div class="text-center">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">Crea anuncios para ecommerces en minutos!</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-400">La parte más importante de un anuncio es el gancho y el guión!</p>
-        <div class="mt-10 flex items-center justify-center gap-x-6">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl dark:text-white">La forma más efectiva de crear anuncios efectivos es estudiando lo que funciona!</h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-400">Inspírate de +1000 anuncios efectivos y de la IA para crear anuncios ganadores en meta y tiktok</p>
+        <div class="mt-10 flex-col items-center justify-center gap-x-6">
           <a href="/signup" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Empieza gratis!</a>
+          <p class="mt-2 text-sm leading-8 text-gray-600 dark:text-slate-400">No se requiere tarjeta!</p>
         </div>
       </div>
     </div>
@@ -23,8 +24,7 @@
   <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center">
-        <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
-        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to deploy your app</p>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">La manera más rápida de escalar tu negocio de ecommerce es a través de anuncios efectivos</p>
         <p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.</p>
       </div>
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -82,7 +82,7 @@
     <div class="hero-content flex-col lg:flex-row-reverse">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
       <div>
-        <h1 class="text-5xl font-bold">Box Office News!</h1>
+        <h1 class="text-5xl font-bold">Explora +1000 anuncios que funcionan!</h1>
         <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
         <button class="btn btn-primary">Get Started</button>
       </div>
@@ -94,7 +94,7 @@
     <div class="hero-content flex-col lg:flex-row-reverse">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
       <div>
-        <h1 class="text-5xl font-bold">Box Office News!</h1>
+        <h1 class="text-5xl font-bold">Crea los guiones con ayuda de la IA</h1>
         <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
         <button class="btn btn-primary">Get Started</button>
       </div>
@@ -105,7 +105,7 @@
     <div class="hero-content flex-col lg:flex-row-reverse">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
       <div>
-        <h1 class="text-5xl font-bold">Box Office News!</h1>
+        <h1 class="text-5xl font-bold">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
         <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
         <button class="btn btn-primary">Get Started</button>
       </div>

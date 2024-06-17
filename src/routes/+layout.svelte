@@ -47,7 +47,7 @@
 
 <Toaster />
 
-<nav class="bg-gray-800 text-white">
+<nav class="bg-gray-800 text-white fixed w-full z-20">
   <div class="flex max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
     <div class="flex h-16 justify-between w-full">
       <div class="flex justify-between w-full">
@@ -69,8 +69,8 @@
             <button on:click={closeMenu} class="w-full text-left px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Salir</button>
           </form>
           {:else}
-          <a href="/signup" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Registrarse</a>
-          <a href="/login" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Login</a>
+          <a href="/signup" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white border-2 bg-slate-100 text-gray-900">Registrarse</a>
+          <a href="/login" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white">Iniciar sesión</a>
           
           {/if}
         </div>
@@ -103,7 +103,7 @@
       </form>
       {:else}
       <a href="/signup" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Registrarse</a>
-      <a href="/login" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Login</a>
+      <a href="/login" on:click={closeMenu} class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white">Iniciar sesión</a>
       
       {/if}
     </div>
