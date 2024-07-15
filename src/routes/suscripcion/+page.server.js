@@ -17,6 +17,17 @@ export async function load({cookies}){
           
         }
   const user = await response.json()
+  const id = user.id
+
+  const verificacion_fechas_palabras = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:ginKV_Kk/verificacion_fechas_palabras', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ user_id:id})
+});
+
+const resultado2= await verificacion_fechas_palabras.json()
 
   const totalpalabras = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:18Sx1eqv/totales_palabras?user_id=${user.id}` , {
       method: 'GET',
@@ -35,7 +46,7 @@ export async function load({cookies}){
 
 
   return {
-    user, resultado
+    user, resultado, resultado2
   }
 
 
