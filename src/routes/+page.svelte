@@ -31,7 +31,17 @@
         <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">La manera más rápida de escalar tu negocio de ecommerce es a través de anuncios efectivos</p>
         <!--<p class="mt-6 text-lg leading-8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.</p>-->
       </div>
-      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+
+      <div class="flex flex-row justify-center mt-10 lg:w-3/4 mx-auto">
+
+        <video src="https://res.cloudinary.com/anuncioai/video/upload/v1721162919/Video_DEMO_prompts_final_cez5pe.mp4" class="aspect-auto" autoplay controls>
+          <track kind="captions">
+        </video>
+
+      </div>
+
+      
+      <!--<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
         <dl class="grid max-w-xl grid-cols-1 gap-x-24 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
           <div class="relative pl-16">
             <dt class="text-base font-semibold leading-7 text-gray-900">
@@ -64,39 +74,43 @@
       
         </dl>
       </div>
+      -->
     </div>
+    
+
   </div>
+  
 
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div>
+      <div class="w-1/2">
         <h1 class="text-5xl font-bold">Explora +1000 anuncios que funcionan!</h1>
-        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-        <button class="btn btn-primary">Get Started</button>
+        <p class="py-6">Inspírate y estudia los anuncios que ya funcionan</p>
+        
       </div>
     </div>
   </div>
 
 
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div>
+      <div class="w-1/2">
         <h1 class="text-5xl font-bold">Crea los guiones con ayuda de la IA</h1>
-        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-        <button class="btn btn-primary">Get Started</button>
+        <p class="py-6">Crea guiones para tus productos con ayuda de inteligencia artificial.</p>
+        
       </div>
     </div>
   </div>
 
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div>
+      <div class="w-1/2">
         <h1 class="text-5xl font-bold">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
-        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-        <button class="btn btn-primary">Get Started</button>
+        <p class="py-6">Guarda, edita y accede a tus guiones desde cualquier dispositivo.</p>
+        
       </div>
     </div>
   </div>
@@ -104,7 +118,7 @@
   <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl sm:text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">El precio no debe ser un problema</h2>
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">El precio no debe ser una barrera para utilizar la IA</h2>
         <p class="mt-6 text-lg leading-8 text-gray-600">Disfruta de todas las características con un único precio</p>
       </div>
       <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
@@ -172,7 +186,7 @@
               Ofrecen una prueba gratuita?
             </div>
             <div class="collapse-content"> 
-              <p>hello</p>
+              <p>Por supuesto! Puedes disfrutar de todas las características sin necesidad de colocar tu tarjeta. Crear guiones con IA, explorar +1000 anuncios, gestionar tus guiones y mucho más!</p>
             </div>
           </div>
           <div class="collapse collapse-arrow bg-base-200">
@@ -181,16 +195,16 @@
               Como puedo mejorar mi flujo de creación de anuncios?
             </div>
             <div class="collapse-content"> 
-              <p>hello</p>
+              <p>El forma más eficiente de crear anuncios que tienen buen rendimiento es replicando lo que ya funciona. Es por eso que creemos que combinar los anuncios que ya dan resultados con la inteligencia artificial es la forma más óptima de crear anuncios en Meta, Tiktok y Google.</p>
             </div>
           </div>
           <div class="collapse collapse-arrow bg-base-200">
             <input type="radio" name="my-accordion-2" /> 
             <div class="collapse-title text-xl font-bold">
-              Puedo guardar los anuncios?
+              Puedo descargar o guardar los anuncios?
             </div>
             <div class="collapse-content"> 
-              <p>hello</p>
+              <p>Por supuesto! Todos los anuncios que te mostramos como inspiración son de acceso gratuito para que puedas inspirarte y animarte a crear tus anuncios!</p>
             </div>
           </div>
           

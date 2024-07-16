@@ -166,9 +166,14 @@ function togglePrice() {
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">El precio no debe ser un problema</h2>
           <p class="mt-6 text-lg leading-8 text-gray-600">Disfruta de todas las características con un único precio</p>
         </div>
-        <input type="checkbox" class="toggle" checked="checked"  on:click={togglePrice}/>
-        <span>{isAnnual ? 'Anual' : 'Mensual'}</span>
-        <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+
+        <div class="flex flex-row gap-5 mt-5 justify-center">
+          <input type="checkbox" class="toggle" checked="checked"  on:click={togglePrice}/>
+          <span>{isAnnual ? 'Anual' : 'Mensual'}</span>
+
+        </div>
+        
+        <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-10 lg:mx-0 lg:flex lg:max-w-none">
           <div class="p-8 sm:p-10 lg:flex-auto">
             <h3 class="text-2xl font-bold tracking-tight text-gray-900">Membresía creador</h3>
             <p class="mt-6 text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.</p>
