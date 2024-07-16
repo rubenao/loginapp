@@ -3,7 +3,25 @@
     console.log(data)
 
     $: plan = data.user.plan;
+    $: cantidad_palabras = data.resultado.prompts1.prompts_cantidad_palabras
+
+    // Estado para el toggle
+  let isAnnual = false;
+
+// Precios
+const monthlyPrice = 10;
+const annualPrice = 100;
+
+// Enlaces para cada precio
+const monthlyLink = "?/suscribir";
+const annualLink = "?/suscribir_2";
+
+// Alternar entre mensual y anual
+function togglePrice() {
+  isAnnual = !isAnnual;
+}
 </script>
+
 
 <main class="sm:px-6 lg:px-8 px-4 py-4">
 
@@ -31,10 +49,12 @@
               <dt class="text-sm font-medium leading-6 text-gray-900">Se renueva palabras</dt>
               <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{data.resultado.fecha_reinicio}</dd>
             </div>
+            {#if cantidad_palabras != null}
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt class="text-sm font-medium leading-6 text-gray-900">Cantidad de palabras usadas</dt>
               <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{data.resultado.prompts1.prompts_cantidad_palabras}</dd>
             </div>
+            {/if}
             
           </dl>
         </div>
@@ -84,7 +104,7 @@
               <h3 class="text-2xl font-bold tracking-tight text-gray-900">Membresía creador</h3>
               <p class="mt-6 text-base leading-7 text-gray-600">Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.</p>
               <div class="mt-10 flex items-center gap-x-4">
-                <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
+                <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">Qué incluye</h4>
                 <div class="h-px flex-auto bg-gray-100"></div>
               </div>
               <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6">
@@ -138,12 +158,16 @@
 
     <!--Componente de precio de planes-->
 
+    
+
     <div class="bg-white py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl sm:text-center">
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">El precio no debe ser un problema</h2>
           <p class="mt-6 text-lg leading-8 text-gray-600">Disfruta de todas las características con un único precio</p>
         </div>
+        <input type="checkbox" class="toggle" checked="checked"  on:click={togglePrice}/>
+        <span>{isAnnual ? 'Anual' : 'Mensual'}</span>
         <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
           <div class="p-8 sm:p-10 lg:flex-auto">
             <h3 class="text-2xl font-bold tracking-tight text-gray-900">Membresía creador</h3>
@@ -184,10 +208,10 @@
               <div class="mx-auto max-w-xs px-8">
                 <p class="text-base font-semibold text-gray-600">Pay once, own it forever</p>
                 <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                  <span class="text-5xl font-bold tracking-tight text-gray-900">$10</span>
+                  <span class="text-5xl font-bold tracking-tight text-gray-900"> ${isAnnual ? annualPrice : monthlyPrice}</span>
                   <span class="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
                 </p>
-                <form action="?/suscribir" method="POST">
+                <form action={isAnnual ? annualLink : monthlyLink} method="POST">
                     <button type="submit" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Suscribirse</button>
                 </form>
                 <!--<a href="/signup" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Crea tu anuncio!</a>-->
@@ -200,6 +224,7 @@
     </div>
 
   {/if}
+
 
   
   

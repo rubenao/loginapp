@@ -18,6 +18,7 @@ export async function load({cookies}){
         }
   const user = await response.json()
   const id = user.id
+  console.log(id)
 
   const verificacion_fechas_palabras = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:ginKV_Kk/verificacion_fechas_palabras', {
     method: 'POST',
@@ -28,8 +29,10 @@ export async function load({cookies}){
 });
 
 const resultado2= await verificacion_fechas_palabras.json()
+console.log(resultado2)
 
-  const totalpalabras = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:18Sx1eqv/totales_palabras?user_id=${user.id}` , {
+  const totalpalabras = await fetch(`https://xksj-cccl-hafb.n7d.xano.io/api:18Sx1eqv/totales_palabras?user_id=${user.id}`
+     , {
       method: 'GET',
       headers: {
       'Content-Type': 'application/json',
@@ -38,6 +41,7 @@ const resultado2= await verificacion_fechas_palabras.json()
 
   })
   const resultado = await totalpalabras.json()
+  console.log(resultado)
 
   if (!totalpalabras.ok) {
     throw new Error("No se pudo obtener el total de palabras");
@@ -46,7 +50,7 @@ const resultado2= await verificacion_fechas_palabras.json()
 
 
   return {
-    user, resultado, resultado2
+    user,resultado, resultado2
   }
 
 
@@ -102,6 +106,50 @@ export const actions = {
 
     
     },
+    suscribir_2: async({request, cookies}) =>{
+
+      const cookie = cookies.get('session')
+  
+      const responseUser = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:2FhYSCVF/auth/me', {
+              method: 'GET',
+              headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${cookie}`
+              }
+          });
+      
+      if (!responseUser.ok) {
+              throw new Error("Failed to fetch user data");
+          }
+  
+      const user = await responseUser.json()
+      const id = user.id
+      const email = user.email
+      const nombre = user.name
+  
+      //Validación de palabras
+  
+      const checkout = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:_XMYlbgZ/peticion_2', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ user_id:id, email, nombre})
+      });
+  
+      const checkoutresponse = await checkout.json()
+      console.log(checkoutresponse)
+      const link = checkoutresponse.link
+      console.log(link)
+  
+      if (checkout.ok) {
+  
+        redirect(303, link)
+        
+      }
+  
+      
+      },
 
     portal: async({request, cookies}) =>{
 
