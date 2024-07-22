@@ -24,6 +24,7 @@
       Iniciar Sesión
     </button>
     <p class="dark:text-slate-400">Todavia no tienes una cuenta? <a href="/signup" class="underline">Registrarse</a></p>
+    <p class="dark:text-slate-400">Olvidaste tu contraseña? <a href="/forgot-password" class="underline">Cambiar</a></p>
     {#if form?.missing}<p class="error text-red-700 font-bold">Completa todos los campos</p>{/if}
     {#if form?.incorrect}<p class="error text-red-700 font-bold">Credenciales incorrectas!</p>{/if}
   </form>

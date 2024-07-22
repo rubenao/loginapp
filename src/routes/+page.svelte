@@ -1,4 +1,8 @@
-
+<script>
+  import imagen_1 from '$lib/assets/anuncios.png';
+  import imagen_2 from '$lib/assets/guiones.png';
+  import imagen_3 from '$lib/assets/gestion_guiones.png';
+</script>
 
 <div class="relative  px-6 lg:px-8">
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
@@ -81,35 +85,35 @@
   </div>
   
 
-  <div class="hero min-h-screen bg-base-200">
+  <div class="hero lg:min-h-screen bg-base-200 h-auto">
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
-      <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div class="w-1/2">
-        <h1 class="text-5xl font-bold">Explora +1000 anuncios que funcionan!</h1>
-        <p class="py-6">Inspírate y estudia los anuncios que ya funcionan</p>
+      <img src={imagen_1} alt="inspírate con miles de anuncios" class="w-full lg:w-7/12" />
+      <div class="lg:w-1/2">
+        <h1 class="lg:text-5xl font-bold text-3xl text-center">Explora +1000 anuncios que funcionan!</h1>
+        <p class="py-6 text-center">Inspírate y estudia los anuncios que ya funcionan</p>
         
       </div>
     </div>
   </div>
 
 
-  <div class="hero min-h-screen bg-base-200">
+  <div class="hero lg:min-h-screen bg-base-200 h-auto">
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
-      <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div class="w-1/2">
-        <h1 class="text-5xl font-bold">Crea los guiones con ayuda de la IA</h1>
-        <p class="py-6">Crea guiones para tus productos con ayuda de inteligencia artificial.</p>
+      <img src={imagen_2} alt="crea guiones con IA" class="lg:w-7/12 w-full" />
+      <div class="lg:w-1/2">
+        <h1 class="lg:text-5xl font-bold text-3xl text-center">Crea los guiones con ayuda de la IA</h1>
+        <p class="py-6 text-center">Crea guiones para tus productos con ayuda de inteligencia artificial.</p>
         
       </div>
     </div>
   </div>
 
-  <div class="hero min-h-screen bg-base-200">
+  <div class="hero lg:min-h-screen bg-base-200 h-auto">
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
-      <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="spiderman" class="max-w-sm rounded-lg shadow-2xl" />
-      <div class="w-1/2">
-        <h1 class="text-5xl font-bold">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
-        <p class="py-6">Guarda, edita y accede a tus guiones desde cualquier dispositivo.</p>
+      <img src={imagen_3} alt="gestión de guiones" class="lg:w-7/12 w-full" />
+      <div class="lg:w-1/2">
+        <h1 class="lg:text-5xl font-bold text-3xl text-center">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
+        <p class="py-6 text-center">Guarda, edita y accede a tus guiones desde cualquier dispositivo.</p>
         
       </div>
     </div>
@@ -153,6 +157,12 @@
                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
               </svg>
               Capacidad de generar 100,000 palabras
+            </li>
+            <li class="flex gap-x-3">
+              <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+              Crea y comparte brief de anuncios!
             </li>
           </ul>
         </div>

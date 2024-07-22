@@ -179,7 +179,7 @@ export const actions = {
           headers: {
           'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ email})
+          body: JSON.stringify({ user_id:id})
       });
   
       const portalresponse = await portal.json()
@@ -187,7 +187,7 @@ export const actions = {
 
       
   
-      const link = portalresponse
+      const link = portalresponse.result1
       console.log(link)
 
       if (portalresponse) {

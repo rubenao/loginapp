@@ -106,7 +106,7 @@
     }>
 
         <div class="mt-4">
-            <input type="text" id="producto" name="producto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required/>
+            <input type="text" id="producto" name="producto" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required placeholder="Escribe el nombre de tu producto ejm: matcha"/>
         </div>
         <button type="submit" class="btn btn-primary mt-4 text-base">Crear guion</button>
 

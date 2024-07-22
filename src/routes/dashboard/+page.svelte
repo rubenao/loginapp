@@ -21,13 +21,13 @@
 </script>
 
 
-<main class="p-5 bg-slate-300">
+<main class="p-5 bg-slate-100">
 
     <!--<p class="text-base text-gray-700 leading-relaxed mb-4 font-medium">Bienvenido {data.user.name}</p>-->
 
 
-    <div class="flex flex-col gap-10 mt-16">
-        <h1 class="font-bold text-3xl">Inspírate de estos anuncios </h1>
+    <div class="flex flex-col gap-8 mt-20">
+        <h1 class="font-extrabold text-3xl">No más bloqueos creativos! </h1>
         <div class="columns-2 md:columns-3 lg:columns-4" in:fly={{ y: 40, duration: 1000}}>
 
             <!--{#each data.anunciosResponse.result1 as anuncio }
