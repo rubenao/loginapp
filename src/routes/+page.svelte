@@ -4,6 +4,14 @@
   import imagen_3 from '$lib/assets/gestion_guiones.png';
 </script>
 
+<svelte:head>
+
+  <title>Anuncioai</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 <div class="relative  px-6 lg:px-8">
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
@@ -89,8 +97,8 @@
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src={imagen_1} alt="inspírate con miles de anuncios" class="w-full lg:w-7/12" />
       <div class="lg:w-1/2">
-        <h1 class="lg:text-5xl font-bold text-3xl text-center">Explora +1000 anuncios que funcionan!</h1>
-        <p class="py-6 text-center">Inspírate y estudia los anuncios que ya funcionan</p>
+        <h1 class="lg:text-5xl lg:text-left font-bold text-3xl text-center">Explora +1000 anuncios que funcionan!</h1>
+        <p class="py-6 text-center lg:text-left">Inspírate y estudia los anuncios que ya funcionan</p>
         
       </div>
     </div>
@@ -101,8 +109,8 @@
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src={imagen_2} alt="crea guiones con IA" class="lg:w-7/12 w-full" />
       <div class="lg:w-1/2">
-        <h1 class="lg:text-5xl font-bold text-3xl text-center">Crea los guiones con ayuda de la IA</h1>
-        <p class="py-6 text-center">Crea guiones para tus productos con ayuda de inteligencia artificial.</p>
+        <h1 class="lg:text-5xl font-bold text-3xl text-center lg:text-left">Crea los guiones con ayuda de la IA</h1>
+        <p class="py-6 text-center lg:text-left">Crea guiones para tus productos con ayuda de inteligencia artificial.</p>
         
       </div>
     </div>
@@ -112,8 +120,8 @@
     <div class="hero-content flex-col lg:flex-row-reverse lg:justify-around">
       <img src={imagen_3} alt="gestión de guiones" class="lg:w-7/12 w-full" />
       <div class="lg:w-1/2">
-        <h1 class="lg:text-5xl font-bold text-3xl text-center">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
-        <p class="py-6 text-center">Guarda, edita y accede a tus guiones desde cualquier dispositivo.</p>
+        <h1 class="lg:text-5xl font-bold text-3xl text-center lg:text-left">Gestiona todos tus guiones y accede a ellos en cualquier momento!</h1>
+        <p class="py-6 text-center lg:text-left">Guarda, edita y accede a tus guiones desde cualquier dispositivo.</p>
         
       </div>
     </div>

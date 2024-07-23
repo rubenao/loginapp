@@ -22,6 +22,14 @@ function togglePrice() {
 }
 </script>
 
+<svelte:head>
+
+  <title>Suscripción</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 
 <main class="sm:px-6 lg:px-8 px-4 py-4">
 

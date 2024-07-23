@@ -20,6 +20,14 @@
     
 </script>
 
+<svelte:head>
+
+  <title>Dashboard</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 
 <main class="p-5 bg-slate-100">
 

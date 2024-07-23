@@ -5,6 +5,14 @@
     console.log(form)
 </script>
 
+<svelte:head>
+
+  <title>Notas</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 
 <main class="p-5">
 

@@ -33,7 +33,8 @@ export const actions = {
 
         //Validación de palabras
 
-        const verificacion = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:nCl8y_gm/verificacion_palabras', {
+        const verificacion = await fetch('https://xksj-cccl-hafb.n7d.xano.io/api:ginKV_Kk/verificacion_palabras', {
+            
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

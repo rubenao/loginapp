@@ -3,6 +3,14 @@
     //console.log(form.errorData.message)
 </script>
 
+<svelte:head>
+
+  <title>Registrarse</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 
 <main class="flex items-center justify-center h-screen bg-gray-100 dark:bg-slate-800">
 

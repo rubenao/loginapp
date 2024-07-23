@@ -75,6 +75,14 @@
 	};
 </script>
 
+<svelte:head>
+
+  <title>Crea tu guión!</title>
+	<meta name="description" content="La herramienta para crear anuncios efectivos con IA" />
+
+
+</svelte:head>
+
 
 <main class="p-5">
 
@@ -248,6 +256,8 @@
         </form>
         <h3 class="font-bold text-lg">Ups!</h3>
         <p class="py-4">Excediste el limite de palabras!</p>
+        <button class="btn btn-primary"><a href="/suscripcion">Actualizar plan</a></button>
+
     </div>
     </dialog>
 
